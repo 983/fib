@@ -24,6 +24,7 @@ class Language
 end
 
 languages = []
+=begin
 languages << Language.new("Assembly", :compiled, "gcc -no-pie -o fib fib-gcc-x64.s", "./fib")
 languages << Language.new("C", :compiled, "gcc -fno-inline-small-functions -O3 -o fib fib.c", "./fib")
 languages << Language.new("C++", :compiled, "g++ -fno-inline-small-functions -O3 -o fib fib.cpp", "./fib")
@@ -47,7 +48,9 @@ languages << Language.new("Kotlin", :vm, "kotlinc Fib.kt -include-runtime -d Fib
 languages << Language.new("C#", :vm, "dotnet build -c Release -o ./bin", "dotnet ./bin/fib.dll")
 languages << Language.new("C# (Mono)", :vm, "mcs Fib.cs", "mono Fib.exe")
 languages << Language.new("Erlang", :vm, "erlc +native +'{hipe,[o3]}' fib.erl", "erl -noinput -noshell -s fib")
-
+=end
+languages << Language.new("WebAssembly", :vm, "wat2wasm fib.wat", "node fib_wasm.js")
+=begin
 languages << Language.new("Dart", :mixed, "", "dart fib.dart")
 languages << Language.new("Julia", :mixed, "", "julia -O3 fib.jl")
 languages << Language.new("Escript", :mixed, "", "escript fib.es")
@@ -66,6 +69,7 @@ languages << Language.new("Janet", :interpreted, "", "janet ./fib.janet")
 languages << Language.new("Perl", :interpreted, "", "perl fib.pl")
 languages << Language.new("Tcl", :interpreted, "", "tclsh fib.tcl")
 languages << Language.new("Perl 6", :interpreted, "", "perl6 fib.p6")
+=end
 #languages << Language.new("K", :interpreted, "", "k fib.k")
 #languages << Language.new("R", :interpreted, "", "r -f fib.r")
 #languages << Language.new("Bash", :interpreted, "", "bash fib.sh")
